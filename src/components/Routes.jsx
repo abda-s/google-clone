@@ -1,5 +1,7 @@
-import React from 'react'
-import {Switch, Route, Redirect} from "react-loader-dom"
+import React from 'react';
+import { Switch, Route, Redirect } from 'react-router-dom';
+
+import { Results } from './Results';
 
 export const Routes = () => {
   return (
@@ -9,11 +11,11 @@ export const Routes = () => {
                 <Redirect to="/search"  />
             </Route>
             <Route exact path={['/search', '/images', '/news', '/videos']}> 
-
+                <Results />
             </Route>
         </Switch>  
     </div>
   )
 }
 
-export default Routes;
+

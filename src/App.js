@@ -1,13 +1,18 @@
-import React from 'react'
+import React, {useState} from 'react'
 import "./index.css"
 
-export const App = () => {
-  return (
-    <div>
-        <h1 className="text-3xl font-bold underline">
-            Hello world!
-        </h1>
+import { Navbar } from "./components/Navbar";
+import { Footer } from "./components/Footer";
+import { Routes } from "./components/Routes";
 
+export const App = () => {
+    const [darkTheme,setDarkTheme] = useState(false);
+
+  return (
+    <div className={darkTheme ? "dark" : ""}>
+        <div className="bg-gray-100">
+            App
+        </div>
     </div>
   )
 }

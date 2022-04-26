@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Routes = () => {
+export const Routes = () => {
   return (
     <div>Routes</div>
   )

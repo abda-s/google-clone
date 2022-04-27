@@ -6,8 +6,11 @@ import {useResultContext} from "../contexts/ResultContextProvider";
 
 export const Results = () => {
 
+  const { getResults, results, searchTerm, setSearchTerm, isLoading } = useResultContext();
+  const location = useLocation; //the will give the location like /images  
   
-
+  if(isLoading) return <Loading />
+  
   return (
     <div>
         Results

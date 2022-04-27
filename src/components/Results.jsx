@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import ReactPlayer from 'react-player';
 
 import {useResultContext} from "../contexts/ResultContextProvider";
+import {Loading} from "./Loading"
 
 export const Results = () => {
 

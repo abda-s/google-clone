@@ -20,6 +20,20 @@ export const ResultContextProvider = ({ children }) => {
                 'X-RapidAPI-Host': 'google-search3.p.rapidapi.com',
                 'X-RapidAPI-Key': `${process.env.REACT_APP_API_KEY}`
               }
-        })
-    };
+        });
+
+        const data = await response.json();
+
+        setResults(data);
+        setIsLoading(false);
+
+    }
+
+    return(
+        <ResultContext.Provider value={{getResults, results, searchTerm, setSearchTerm, isLoading}}>
+            {children}
+        </ResultContext.Provider>
+    );
 }
+
+export const useResultContext = () => useContext(ResultContext);

@@ -1,17 +1,18 @@
-import React, { useContext} from 'react';
+import React from 'react';
 import { useLocation } from 'react-router-dom';
+import {Loading} from "./Loading";
 
 //import ReactPlayer from 'react-player';
 
-import { StateContextProvider, StateContext, useStateContext } from '../contexts/ResultContextProvider';
+import { StateContextProvider, useStateContext } from '../contexts/ResultContextProvider';
 // import {Loading} from "./Loading";
 
 export const Results = () => {
 
-  const { getResults, results, searchTerm, setSearchTerm, isLoading } = useStateContext();
+  const { getResults, results, searchTerm, isLoading } = useStateContext();
   const location = useLocation();
 
-  // if (loading) return <Loading />;
+   if (isLoading) return <Loading />;
   return (
     <div>
         Results

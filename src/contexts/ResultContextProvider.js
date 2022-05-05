@@ -6,7 +6,7 @@ const baseUrl = 'https://google-search3.p.rapidapi.com/api/v1';
 export const StateContextProvider = ({ children }) => {
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState('javascript');
 
   const getResults = async (url) => {
     setLoading(true);
@@ -21,7 +21,20 @@ export const StateContextProvider = ({ children }) => {
 
     const data = await res.json();
 
-    setResults(data);
+    if (url.includes("/news")) {
+      setResults(data?.entries);
+      console.log(data?.entries);
+    }else if (url.includes("/image")) {
+      setResults(data?.image_results);
+      console.log(data?.image_results);
+    }
+    else{
+      setResults(data);
+      console.log(data);
+    }
+
+
+    // setResults(data);
     setLoading(false);
   };
 

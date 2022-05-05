@@ -23,18 +23,11 @@ export const StateContextProvider = ({ children }) => {
 
     if (url.includes("/news")) {
       setResults(data?.entries);
-      console.log(data?.entries);
-    }else if (url.includes("/image")) {
-      setResults(data?.image_results);
-      console.log(data?.image_results);
     }
     else{
       setResults(data);
-      console.log(data);
     }
 
-
-    // setResults(data);
     setLoading(false);
   };
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import {TailSpin, Puff} from "react-loader-spinner";
+import {Puff} from "react-loader-spinner";
 
  const Loading = () => {
   return (

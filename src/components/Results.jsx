@@ -5,7 +5,7 @@ import Loading from "./Loading";
 //import ReactPlayer from 'react-player';
 
 import {useStateContext } from '../contexts/ResultContextProvider';
-import ReactPlayer from 'react-player';
+import ReactPlayer from 'react-player/youtube';
 // import {Loading} from "./Loading";
 
 export const Results = () => {
@@ -81,10 +81,10 @@ export const Results = () => {
         )
       case "/video":
         return (
-          <div className='flex flex-wrap'>
+          <div className='flex flex-wrap justify-center '>
             {results?.results?.map(({additional_links}, index)=>(
               <div key={index} className="p-2">
-                <ReactPlayer url={additional_links?.[0]?.href} controls width="355px" height="250" />
+                <ReactPlayer url={additional_links?.[0]?.href} controls width="355px" height="250"/>
               </div>
             ))}
           </div>        

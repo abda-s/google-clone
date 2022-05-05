@@ -7,9 +7,9 @@ import {useStateContext } from '../contexts/ResultContextProvider';
 import {Links} from "./Links"
 
 export const Search = () => {
-  const [text, setText] = useState('elon musk');
+  const [text, setText] = useState('Elon Musk');
   const {setSearchTerm} = useStateContext();
-  const [debounceValue] = useDebounce(text, 300);
+  const [debounceValue] = useDebounce(text, 500);
 
   useEffect(() => {
     if (debounceValue) {

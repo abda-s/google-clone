@@ -4,7 +4,8 @@ import Loading from "./Loading";
 
 //import ReactPlayer from 'react-player';
 
-import { StateContextProvider, useStateContext } from '../contexts/ResultContextProvider';
+import {useStateContext } from '../contexts/ResultContextProvider';
+import ReactPlayer from 'react-player';
 // import {Loading} from "./Loading";
 
 export const Results = () => {
@@ -14,8 +15,8 @@ export const Results = () => {
 
   useEffect(()=>{
     if (searchTerm) {
-      if (location.pathname === "/videos") {
-        getResults(`/search/q=${searchTerm} videos`)
+      if (location.pathname === "/video") {
+        getResults(`/search/q=${searchTerm} youtube`)
       }else{
         getResults(`${location.pathname}/q=${searchTerm}&num=40`)
       }
@@ -23,6 +24,7 @@ export const Results = () => {
 
   },[searchTerm, location.pathname]);
    if (loading) return <Loading />
+
 
     switch (location.pathname) {
       case "/search":
@@ -79,15 +81,16 @@ export const Results = () => {
         )
       case "/video":
         return (
-          <div className='flex flex-wrap justify-center items-center'>
-
-          </div>
-        )
+          <div className='flex flex-wrap'>
+            {results?.results?.map(({additional_links}, index)=>(
+              <div key={index} className="p-2">
+                <ReactPlayer url={additional_links?.[0]?.href} controls width="355px" height="250" />
+              </div>
+            ))}
+          </div>        
+          )
       default:
-        return (
-          <div className='flex flex-wrap justify-center items-center'>
-            ERROR
-          </div>
-        )
+        return "error!"
     }
+
 }
